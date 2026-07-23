@@ -85,10 +85,7 @@ const sammlung = [
         a5: {
             normale: [
                 "A501",
-                "A502"
-            ],
-
-            duft: [
+                "A502",
                 "A503",
                 "A504",
                 "A505",
@@ -99,10 +96,7 @@ const sammlung = [
         a6: {
             normale: [
                 "A601",
-                "A602"
-            ],
-
-            duft: [
+                "A602",
                 "A603",
                 "A604",
                 "A605",
