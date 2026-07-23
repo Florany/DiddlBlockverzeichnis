@@ -2,6 +2,25 @@ const sammlung = [
 
     {
         datum: "Oktober 2025",
+
+        a5: {
+            normale: [
+                "DA501",
+                "DA502",
+                "DA503"
+            ]
+        },
+
+        a6: {
+            normale: [
+                "DA601",
+                "DA602",
+                "DA603",
+                "DA604",
+                "DA605",
+                "DA606"
+            ]
+        }
     },
 
     {
