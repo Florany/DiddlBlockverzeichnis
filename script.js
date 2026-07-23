@@ -53,13 +53,13 @@ function fuelleGrid(container, bloecke) {
 
         // Nur die letzten zwei Ziffern anzeigen
         const nummer = dateiname.slice(-2);
+        const blatt = dateiname.slice(0, 2) + "B" + dateiname.slice(2);
 
         karte.innerHTML = `
-            <img src="bilder/${dateiname}.png" alt="${nummer}">
-
-            <!--
-            <p>${nummer}</p>
-            -->
+            <div class="bilder-paar">
+                <img src="bilder/${dateiname}.png" alt="${nummer}">
+                <img src="bilder/${blatt}.png" alt="Blatt ${nummer}" onerror="this.style.display='none'">
+             </div>
         `;
 
         container.appendChild(karte);
