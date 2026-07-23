@@ -2,14 +2,6 @@ const sammlung = [
 
     {
         datum: "Oktober 2025",
-
-        a5: {
-            normale: []
-        },
-
-        a6: {
-            normale: []
-        }
     },
 
     {
@@ -17,20 +9,20 @@ const sammlung = [
 
         a5: {
             normale: [
-                "MA501.jpg",
-                "MA502.jpg",
-                "MA503.jpg"
+                "MA501",
+                "MA502",
+                "MA503"
             ]
         },
 
         a6: {
             normale: [
-                "MA601.jpg",
-                "MA602.jpg",
-                "MA603.jpg",
-                "MA604.jpg",
-                "MA605.jpg",
-                "MA606.jpg"
+                "MA601",
+                "MA602",
+                "MA603",
+                "MA604",
+                "MA605",
+                "MA606"
             ]
         }
     },
@@ -40,26 +32,26 @@ const sammlung = [
 
         a4: {
             normale: [
-                "HA401.jpg",
-                "HA402.jpg"
+                "HA401",
+                "HA402"
             ]
         },
 
         a5: {
             normale: [
-                "HA501.jpg",
-                "HA502.jpg",
-                "HA503.jpg",
-                "HA504.jpg"
+                "HA501",
+                "HA502",
+                "HA503",
+                "HA504"
             ]
         },
 
         a6: {
             normale: [
-                "HA601.jpg",
-                "HA602.jpg",
-                "HA603.jpg",
-                "HA604.jpg"
+                "HA601",
+                "HA602",
+                "HA603",
+                "HA604"
             ]
         }
     },
@@ -69,20 +61,20 @@ const sammlung = [
 
         a5: {
             normale: [
-                "BA501.jpg",
-                "BA502.jpg",
-                "BA503.jpg"
+                "BA501",
+                "BA502",
+                "BA503"
             ]
         },
 
         a6: {
             normale: [
-                "BA601.jpg",
-                "BA602.jpg",
-                "BA603.jpg",
-                "BA604.jpg",
-                "BA605.jpg",
-                "BA606.jpg"
+                "BA601",
+                "BA602",
+                "BA603",
+                "BA604",
+                "BA605",
+                "BA606"
             ]
         }
     },
@@ -92,35 +84,35 @@ const sammlung = [
 
         a5: {
             normale: [
-                "A501.png",
-                "A502.png"
+                "A501",
+                "A502"
             ],
 
             duft: [
-                "A503.png",
-                "A504.png",
-                "A505.png",
-                "A506.png"
+                "A503",
+                "A504",
+                "A505",
+                "A506"
             ]
         },
 
         a6: {
             normale: [
-                "A601.png",
-                "A602.png"
+                "A601",
+                "A602"
             ],
 
             duft: [
-                "A603.png",
-                "A604.png",
-                "A605.png",
-                "A606.png"
+                "A603",
+                "A604",
+                "A605",
+                "A606"
             ],
 
             sonder: [
-                "A607.png",
-                "A608.png",
-                "A609.png"
+                "A607",
+                "A608",
+                "A609"
             ]
         }
     }
