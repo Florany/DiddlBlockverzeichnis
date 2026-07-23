@@ -30,20 +30,6 @@ sammlung.forEach(serie => {
             fuelleGrid(grid, daten.normale);
         }
 
-        // Duftblöcke
-        if (daten.duft && daten.duft.length > 0) {
-
-            const h4 = document.createElement("h4");
-            h4.textContent = "Duftblöcke";
-            wrapper.appendChild(h4);
-
-            const grid = document.createElement("div");
-            grid.className = "grid";
-            wrapper.appendChild(grid);
-
-            fuelleGrid(grid, daten.duft);
-        }
-
         // Spezialblöcke
         if (daten.sonder && daten.sonder.length > 0) {
 
@@ -75,7 +61,7 @@ function fuelleGrid(container, bloecke) {
 
         const nummer = dateiname.slice(-2);
 
-        const [, prefix, groesse, blockNummer] = dateiname.match(/^([A-Z]+)([456])(\d{2})$/);
+        const match = dateiname.match(/^([A-Z]+)([456])(\d{2})$/);
 
         if (!match) return;
 
@@ -85,10 +71,10 @@ function fuelleGrid(container, bloecke) {
 
         karte.innerHTML = `
             <div class="bilder-paar">
-            <img src="bilder/${dateiname}.png" alt="${nummer}">
-            <img src="bilder/${blatt}.png"
-                alt="Blatt ${nummer}"
-                onerror="this.style.display='none'">
+                <img src="bilder/${dateiname}.png" alt="${nummer}">
+                <img src="bilder/${blatt}.png"
+                     alt="Blatt ${nummer}"
+                     onerror="this.style.display='none'">
             </div>
         `;
 
