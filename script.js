@@ -3,45 +3,65 @@ const inhalt = document.getElementById("inhalt");
 sammlung.forEach(serie => {
 
     const abschnitt = document.createElement("section");
+    const wrapper = document.createElement("div");
+    wrapper.className = "inhalt";
 
-    abschnitt.innerHTML = `
-    
+    const h2 = document.createElement("h2");
+    h2.textContent = serie.datum;
+    wrapper.appendChild(h2);
 
-        <div class="inhalt">
+    ["a4", "a5", "a6"].forEach(groesse => {
 
-                <h2>${serie.datum}</h2>
+        const daten = serie[groesse];
 
-                <h3>A4</h3>
-                <div class="grid"></div>
+        if (!daten) return;
 
-                <h3>A5</h3>
-                <div class="grid"></div>
+        // Normale Blöcke
+        if (daten.normale && daten.normale.length > 0) {
 
-                <h4>Duftblöcke</h4>
-                <div class="grid"></div>
+            const h3 = document.createElement("h3");
+            h3.textContent = groesse.toUpperCase();
+            wrapper.appendChild(h3);
 
-                <h3>A6</h3>
-                <div class="grid"></div>
+            const grid = document.createElement("div");
+            grid.className = "grid";
+            wrapper.appendChild(grid);
 
-                <h4>Duftblöcke</h4>
-                <div class="grid"></div>
+            fuelleGrid(grid, daten.normale);
+        }
 
-                <h4>Spezialblöcke</h4>
-                <div class="grid"></div>
+        // Duftblöcke
+        if (daten.duft && daten.duft.length > 0) {
 
-        </div>
-    `;
+            const h4 = document.createElement("h4");
+            h4.textContent = "Duftblöcke";
+            wrapper.appendChild(h4);
 
+            const grid = document.createElement("div");
+            grid.className = "grid";
+            wrapper.appendChild(grid);
+
+            fuelleGrid(grid, daten.duft);
+        }
+
+        // Spezialblöcke
+        if (daten.sonder && daten.sonder.length > 0) {
+
+            const h4 = document.createElement("h4");
+            h4.textContent = "Spezialblöcke";
+            wrapper.appendChild(h4);
+
+            const grid = document.createElement("div");
+            grid.className = "grid";
+            wrapper.appendChild(grid);
+
+            fuelleGrid(grid, daten.sonder);
+        }
+
+    });
+
+    abschnitt.appendChild(wrapper);
     inhalt.appendChild(abschnitt);
-
-    const grids = abschnitt.querySelectorAll(".grid");
-
-    fuelleGrid(grids[0], serie.a5.normale);
-    fuelleGrid(grids[1], serie.a5.duft);
-
-    fuelleGrid(grids[2], serie.a6.normale);
-    fuelleGrid(grids[3], serie.a6.duft);
-    fuelleGrid(grids[4], serie.a6.sonder);
 
 });
 
@@ -65,9 +85,9 @@ function fuelleGrid(container, bloecke) {
         if (match) {
             const prefix = match[1];
             const groesse = match[2];
-            const nummer = match[3];
+            const blockNummer = match[3];
 
-            blatt = `${prefix}${groesse}B${nummer}${endung}`;
+            blatt = `${prefix}${groesse}B${blockNummer}${endung}`;
         }
 
         karte.innerHTML = `
