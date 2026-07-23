@@ -9,23 +9,25 @@ sammlung.forEach(serie => {
 
         <div class="inhalt">
 
-            <h2>${serie.datum}</h2>
-            <h3>A5</h3>
+                <h2>${serie.datum}</h2>
 
-            <div class="grid"></div>
+                <h3>A4</h3>
+                <div class="grid"></div>
 
-            <h4>Duftblöcke</h4>
-            <div class="grid"></div>
+                <h3>A5</h3>
+                <div class="grid"></div>
 
-            <h3>A6</h3>
+                <h4>Duftblöcke</h4>
+                <div class="grid"></div>
 
-            <div class="grid"></div>
+                <h3>A6</h3>
+                <div class="grid"></div>
 
-            <h4>Duftblöcke</h4>
-            <div class="grid"></div>
+                <h4>Duftblöcke</h4>
+                <div class="grid"></div>
 
-            <h4>Spezialblöcke</h4>
-            <div class="grid"></div>
+                <h4>Spezialblöcke</h4>
+                <div class="grid"></div>
 
         </div>
     `;
@@ -51,15 +53,28 @@ function fuelleGrid(container, bloecke) {
         const karte = document.createElement("div");
         karte.className = "karte";
 
-        // Nur die letzten zwei Ziffern anzeigen
-        const nummer = dateiname.slice(-2);
-        const blatt = dateiname.slice(0, 2) + "B" + dateiname.slice(2);
+        const dateiOhneEndung = dateiname.substring(0, dateiname.lastIndexOf("."));
+        const endung = dateiname.substring(dateiname.lastIndexOf("."));
+
+        const nummer = dateiOhneEndung.slice(-2);
+
+        const match = dateiOhneEndung.match(/^([A-Z]+)([456])(\d{2})$/);
+
+        let blatt = "";
+
+        if (match) {
+            const prefix = match[1];
+            const groesse = match[2];
+            const nummer = match[3];
+
+            blatt = `${prefix}${groesse}B${nummer}${endung}`;
+        }
 
         karte.innerHTML = `
-            <div class="bilder-paar">
-                <img src="bilder/${dateiname}.png" alt="${nummer}">
-                <img src="bilder/${blatt}.png" alt="Blatt ${nummer}" onerror="this.style.display='none'">
-             </div>
+        <div class="bilder-paar">
+        <img src="bilder/${dateiname}" alt="${nummer}">
+        <img src="bilder/${blatt}" alt="Blatt ${nummer}" onerror="this.style.display='none'">
+        </div>
         `;
 
         container.appendChild(karte);
