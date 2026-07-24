@@ -161,8 +161,18 @@ h4 {
         margin: 5px auto;
     }
 
-    .inhalt {
-        overflow-x: auto;
+    .grid {
+        grid-template-columns: repeat(4, 80px);
+        column-gap: 5px;
+        row-gap: 10px;
+    }
+
+    .karte {
+        width: 80px;
+    }
+
+    .karte img {
+        height: 112px;
     }
 
 }
