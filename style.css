@@ -158,12 +158,16 @@ h4 {
 
     html,
     body {
-    overflow-x: hidden;
+        overflow-x: hidden;
     }
 
     .container {
         width: calc(100% - 10px);
         margin: 5px auto;
+    }
+
+    .inhalt {
+        width: 100%;
     }
 
     .grid {
@@ -173,8 +177,8 @@ h4 {
     }
 
     .vier-bloecke {
-    grid-template-columns: repeat(2, 80px);
-    justify-content: center;
+        grid-template-columns: repeat(2, 80px);
+        justify-content: center;
     }
 
     .karte {
