@@ -124,11 +124,6 @@ h4 {
     margin-top: 18px;
 }
 
-.zwei-spalten {
-    grid-template-columns: repeat(2, 200px);
-}
-
-
 /* Karten */
 
 .karte {
@@ -179,10 +174,6 @@ h4 {
         column-gap: 5px;
         row-gap: 10px;
         justify-content: center;
-    }
-
-    .zwei-spalten {
-    grid-template-columns: repeat(2, 80px);
     }
 
     .karte {

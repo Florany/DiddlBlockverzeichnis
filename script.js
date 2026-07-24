@@ -25,11 +25,10 @@ sammlung.forEach(serie => {
 
             const grid = document.createElement("div");
             grid.className = "grid";
-            wrapper.appendChild(grid);
 
-            if (daten.normale.length >= 4 && daten.normale.length % 2 === 0) {
-            grid.classList.add("zwei-spalten");
-            }
+            setzeSpalten(grid, daten.normale.length);
+
+            wrapper.appendChild(grid);
 
             fuelleGrid(grid, daten.normale);
         }
@@ -43,11 +42,10 @@ sammlung.forEach(serie => {
 
             const grid = document.createElement("div");
             grid.className = "grid";
-            wrapper.appendChild(grid);
 
-            if (daten.normale.length >= 4 && daten.normale.length % 2 === 0) {
-            grid.classList.add("zwei-spalten");
-            }
+            setzeSpalten(grid, daten.sonder.length);
+
+            wrapper.appendChild(grid);
 
             fuelleGrid(grid, daten.sonder);
         }
@@ -59,6 +57,37 @@ sammlung.forEach(serie => {
 
 });
 
+
+function setzeSpalten(grid, anzahl) {
+
+    let spalten;
+
+    if (window.innerWidth <= 900) {
+
+        // Handy
+        if (anzahl <= 1) {
+            spalten = 1;
+        } else if (anzahl === 2) {
+            spalten = 2;
+        } else if (anzahl >= 4 && anzahl % 2 === 0) {
+            spalten = 2;
+        } else {
+            spalten = 3;
+        }
+
+        grid.style.gridTemplateColumns = `repeat(${spalten}, 80px)`;
+
+    } else {
+
+        // Desktop
+        if (anzahl >= 4 && anzahl % 2 === 0) {
+            spalten = anzahl / 2;
+            grid.style.gridTemplateColumns = `repeat(${spalten}, 200px)`;
+        }
+
+    }
+
+}
 
 function fuelleGrid(container, bloecke) {
 
