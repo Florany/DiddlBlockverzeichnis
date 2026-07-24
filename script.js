@@ -29,7 +29,11 @@ sammlung.forEach(serie => {
 
             if (daten.normale.length === 4) {
             grid.classList.add("vier-bloecke");
-}
+            }
+
+            if (daten.normale.length === 2) {
+            grid.classList.add("zwei-bloecke");
+            }
 
             fuelleGrid(grid, daten.normale);
         }
@@ -47,6 +51,10 @@ sammlung.forEach(serie => {
 
             if (daten.normale.length === 4) {
             grid.classList.add("vier-bloecke");
+            }
+
+            if (daten.normale.length === 2) {
+            grid.classList.add("zwei-bloecke");
             }
 
             fuelleGrid(grid, daten.sonder);

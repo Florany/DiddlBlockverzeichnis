@@ -181,6 +181,11 @@ h4 {
         justify-content: center;
     }
 
+    .zwei-bloecke {
+    grid-template-columns: repeat(2, 80px);
+    justify-content: center;
+    }
+
     .karte {
         width: 80px;
     }
