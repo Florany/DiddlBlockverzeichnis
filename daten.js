@@ -78,6 +78,13 @@ const sammlung = [
     {
         datum: "Mai 2026",
 
+        a4: {
+            normale: [
+            "BA401"
+            ]
+
+        },
+
         a5: {
             normale: [
                 "BA501",
