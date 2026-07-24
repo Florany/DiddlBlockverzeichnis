@@ -27,12 +27,8 @@ sammlung.forEach(serie => {
             grid.className = "grid";
             wrapper.appendChild(grid);
 
-            if (daten.normale.length === 4) {
-            grid.classList.add("vier-bloecke");
-            }
-
-            if (daten.normale.length === 2) {
-            grid.classList.add("zwei-bloecke");
+            if (daten.normale.length >= 4 && daten.normale.length % 2 === 0) {
+            grid.classList.add("zwei-spalten");
             }
 
             fuelleGrid(grid, daten.normale);
@@ -49,12 +45,8 @@ sammlung.forEach(serie => {
             grid.className = "grid";
             wrapper.appendChild(grid);
 
-            if (daten.normale.length === 4) {
-            grid.classList.add("vier-bloecke");
-            }
-
-            if (daten.normale.length === 2) {
-            grid.classList.add("zwei-bloecke");
+            if (daten.normale.length >= 4 && daten.normale.length % 2 === 0) {
+            grid.classList.add("zwei-spalten");
             }
 
             fuelleGrid(grid, daten.sonder);
