@@ -116,11 +116,10 @@ h4 {
 
 .grid {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(4, 200px);
-
     column-gap: 15px;
     row-gap: 30px;
-
     margin-top: 18px;
 }
 
