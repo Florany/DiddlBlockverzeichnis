@@ -156,4 +156,9 @@ h4 {
 
 @media (max-width: 900px) {
 
+    .container {
+        width: calc(100% - 10px);
+        margin: 5px auto;
+    }
+
 }
