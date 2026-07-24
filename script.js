@@ -69,7 +69,7 @@ function setzeSpalten(grid, anzahl) {
             spalten = 1;
         } else if (anzahl === 2) {
             spalten = 2;
-        } else if (anzahl >= 4 && anzahl % 2 === 0) {
+        } else if (anzahl === 4) {
             spalten = 2;
         } else {
             spalten = 3;
