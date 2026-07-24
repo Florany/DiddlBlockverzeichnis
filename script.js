@@ -27,6 +27,10 @@ sammlung.forEach(serie => {
             grid.className = "grid";
             wrapper.appendChild(grid);
 
+            if (daten.normale.length === 4) {
+            grid.classList.add("vier-bloecke");
+}
+
             fuelleGrid(grid, daten.normale);
         }
 
@@ -40,6 +44,10 @@ sammlung.forEach(serie => {
             const grid = document.createElement("div");
             grid.className = "grid";
             wrapper.appendChild(grid);
+
+            if (daten.normale.length === 4) {
+            grid.classList.add("vier-bloecke");
+            }
 
             fuelleGrid(grid, daten.sonder);
         }
