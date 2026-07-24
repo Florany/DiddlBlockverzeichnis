@@ -161,4 +161,8 @@ h4 {
         margin: 5px auto;
     }
 
+    .inhalt {
+        overflow-x: auto;
+    }
+
 }
