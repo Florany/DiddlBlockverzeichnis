@@ -80,11 +80,16 @@ function setzeSpalten(grid, anzahl) {
     } else {
 
         // Desktop
-        if (anzahl >= 4 && anzahl % 2 === 0) {
+        if (anzahl === 4) {
+        spalten = 4;
+        } else if (anzahl >= 6 && anzahl % 2 === 0) {
             spalten = anzahl / 2;
-            grid.style.gridTemplateColumns = `repeat(${spalten}, 200px)`;
+        } else {
+            spalten = anzahl;
         }
 
+        grid.style.gridTemplateColumns = `repeat(${spalten}, 200px)`;
+    
     }
 
 }
