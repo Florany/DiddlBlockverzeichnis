@@ -39,7 +39,7 @@ body {
 
 .logo {
     max-width: 100%;
-    width: 350px;
+    width: 170px;
     height: auto;
     display: block;
     margin: 5px auto 50px;
@@ -111,11 +111,59 @@ h4 {
     text-align: center;
 }
 
+/* Trennlinie */
+
+.trennlinie {
+    margin-top: 50px;
+    margin-bottom: -50px;
+    display: flex;
+    align-items: center;
+}
+
+.trennlinie::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #bc8f8f;
+}
+
+.trennlinie::after {
+    display: none;
+}
+
 /* Inhaltsbereich */
 
 .inhalt {
     width: 845px;
     margin: 0 auto;
+}
+
+/* Kategorien */
+
+.kategorien {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 35px;
+
+    font-family: "Notes", sans-serif;
+    color: #bc8f8f;
+    font-size: 1.6rem;
+}
+
+.kategorien a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.kategorien a:hover {
+    opacity: 0.7;
+}
+
+.kategorien a.aktiv {
+    font-weight: bold;
 }
 
 /* Grid */
@@ -143,9 +191,7 @@ h4 {
 .karte img {
     width: 100%;
     height: 280px;
-
     object-fit: cover;
-
     display: block;
     margin: 0px auto;
 }
@@ -155,6 +201,21 @@ h4 {
     font-size: 18px;
 }
 
+/* Briefpapier */
+
+.karte-briefpapier {
+    width: 280px;
+    margin-top: 50px;
+}
+
+.karte-briefpapier img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0px auto;
+    aspect-ratio: 210 / 148;
+}
 
 /* Handy */
 
@@ -204,12 +265,6 @@ h4 {
 
     section h2 {
         margin-top: 60px;
-    }
-
-    .logo {
-    width: 220px;
-    margin: 5px auto 30px;
-    margin-bottom: -10px;
     }
 
 }

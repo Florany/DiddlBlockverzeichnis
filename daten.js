@@ -138,3 +138,31 @@ const sammlung = [
     }
 
 ];
+
+const briefpapier = [
+
+    {
+        datum: "Oktober 2025",
+
+        normale: [
+            "BF01"
+        ]
+    },
+
+    {
+        datum: "Mai 2026",
+
+        normale: [
+            "BF02"
+        ]
+    },
+
+    {
+        datum: "Juli 2026",
+
+        normale: [
+            "BD01"
+        ]
+    }
+
+];

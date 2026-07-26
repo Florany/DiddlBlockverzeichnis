@@ -1,61 +1,130 @@
 const inhalt = document.getElementById("inhalt");
+const linkBloecke = document.querySelector(".kategorien a:first-child");
+const linkBriefpapier = document.querySelector(".kategorien a:last-child");
 
-sammlung.forEach(serie => {
+linkBloecke.addEventListener("click", (e) => {
+    e.preventDefault();
+    linkBloecke.classList.add("aktiv");
+    linkBriefpapier.classList.remove("aktiv");
+    zeigeBloecke();
+});
 
-    const abschnitt = document.createElement("section");
-    const wrapper = document.createElement("div");
-    wrapper.className = "inhalt";
+linkBriefpapier.addEventListener("click", (e) => {
+    e.preventDefault();
+    linkBriefpapier.classList.add("aktiv");
+    linkBloecke.classList.remove("aktiv");
+    zeigeBriefpapier();
+});
 
-    const h2 = document.createElement("h2");
-    h2.textContent = serie.datum;
-    wrapper.appendChild(h2);
+function zeigeBloecke() {
 
-    ["a4", "a5", "a6"].forEach(groesse => {
+    inhalt.innerHTML = "";
 
-        const daten = serie[groesse];
+    sammlung.forEach(serie => {
 
-        if (!daten) return;
+        const abschnitt = document.createElement("section");
+        const wrapper = document.createElement("div");
+        wrapper.className = "inhalt";
 
-        // Normale Blöcke
-        if (daten.normale && daten.normale.length > 0) {
+        const h2 = document.createElement("h2");
+        h2.textContent = serie.datum;
+        wrapper.appendChild(h2);
 
-            const h3 = document.createElement("h3");
-            h3.textContent = groesse.toUpperCase();
-            wrapper.appendChild(h3);
+            ["a4", "a5", "a6"].forEach(groesse => {
 
-            const grid = document.createElement("div");
-            grid.className = "grid";
+                const daten = serie[groesse];
 
-            setzeSpalten(grid, daten.normale.length);
+                if (!daten) return;
 
-            wrapper.appendChild(grid);
+                // Normale Blöcke
+                if (daten.normale && daten.normale.length > 0) {
 
-            fuelleGrid(grid, daten.normale);
-        }
+                    const h3 = document.createElement("h3");
+                    h3.textContent = groesse.toUpperCase();
+                    wrapper.appendChild(h3);
 
-        // Spezialblöcke
-        if (daten.sonder && daten.sonder.length > 0) {
+                    const grid = document.createElement("div");
+                    grid.className = "grid";
 
-            const h4 = document.createElement("h4");
-            h4.textContent = "Spezialblöcke";
-            wrapper.appendChild(h4);
+                    setzeSpalten(grid, daten.normale.length);
 
-            const grid = document.createElement("div");
-            grid.className = "grid";
+                    wrapper.appendChild(grid);
 
-            setzeSpalten(grid, daten.sonder.length);
+                    fuelleGrid(grid, daten.normale);
+                }
 
-            wrapper.appendChild(grid);
+                // Spezialblöcke
+                if (daten.sonder && daten.sonder.length > 0) {
 
-            fuelleGrid(grid, daten.sonder);
-        }
+                    const h4 = document.createElement("h4");
+                    h4.textContent = "Spezialblöcke";
+                    wrapper.appendChild(h4);
+
+                    const grid = document.createElement("div");
+                    grid.className = "grid";
+
+                    setzeSpalten(grid, daten.sonder.length);
+
+                    wrapper.appendChild(grid);
+
+                    fuelleGrid(grid, daten.sonder);
+                }
+
+            });
+
+            abschnitt.appendChild(wrapper);
+            inhalt.appendChild(abschnitt);
+
 
     });
 
-    abschnitt.appendChild(wrapper);
-    inhalt.appendChild(abschnitt);
+}
 
-});
+function zeigeBriefpapier() {
+
+    inhalt.innerHTML = "";
+
+    briefpapier.forEach((serie, index) => {
+
+        const abschnitt = document.createElement("section");
+        const wrapper = document.createElement("div");
+        wrapper.className = "inhalt";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = serie.datum;
+        wrapper.appendChild(h2);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+        grid.style.gridTemplateColumns = "280px";
+
+        wrapper.appendChild(grid);
+
+        serie.normale.forEach(dateiname => {
+
+            const karte = document.createElement("div");
+            karte.className = "karte karte-briefpapier";
+
+            karte.innerHTML = `
+                <img src="bilder/${dateiname}.png" alt="${dateiname}">
+            `;
+
+            grid.appendChild(karte);
+
+        });
+
+        if (index < briefpapier.length - 1) {
+            const linie = document.createElement("h3");
+            linie.className = "trennlinie";
+            wrapper.appendChild(linie);
+        }
+
+        abschnitt.appendChild(wrapper);
+        inhalt.appendChild(abschnitt);
+
+    });
+
+}
 
 
 function setzeSpalten(grid, anzahl) {
@@ -125,3 +194,5 @@ function fuelleGrid(container, bloecke) {
     });
 
 }
+
+zeigeBloecke();
