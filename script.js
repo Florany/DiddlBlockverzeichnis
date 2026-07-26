@@ -107,7 +107,13 @@ function zeigeBriefpapier() {
 
         const grid = document.createElement("div");
         grid.className = "grid";
-        grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
+        
+        if (window.innerWidth <= 900) {
+            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 150px)`;
+        } else {
+            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
+        }
+        
         wrapper.appendChild(grid);
 
         serie.normale.forEach(eintrag => {
@@ -144,7 +150,12 @@ function zeigeHaftnotizen() {
 
         const grid = document.createElement("div");
         grid.className = "grid";
-        grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
+        
+        if (window.innerWidth <= 900) {
+            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 150px)`;
+        } else {
+            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
+        }
 
         wrapper.appendChild(grid);
 
