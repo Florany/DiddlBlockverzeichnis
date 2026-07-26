@@ -1,11 +1,13 @@
 const inhalt = document.getElementById("inhalt");
-const linkBloecke = document.querySelector(".kategorien a:first-child");
-const linkBriefpapier = document.querySelector(".kategorien a:last-child");
+const linkBloecke = document.querySelector(".kategorien a:nth-of-type(1)");
+const linkBriefpapier = document.querySelector(".kategorien a:nth-of-type(2)");
+const linkHaftnotizen = document.querySelector(".kategorien a:nth-of-type(3)");
 
 linkBloecke.addEventListener("click", (e) => {
     e.preventDefault();
     linkBloecke.classList.add("aktiv");
     linkBriefpapier.classList.remove("aktiv");
+    linkHaftnotizen.classList.remove("aktiv");
     zeigeBloecke();
 });
 
@@ -13,7 +15,16 @@ linkBriefpapier.addEventListener("click", (e) => {
     e.preventDefault();
     linkBriefpapier.classList.add("aktiv");
     linkBloecke.classList.remove("aktiv");
+    linkHaftnotizen.classList.remove("aktiv");
     zeigeBriefpapier();
+});
+
+linkHaftnotizen.addEventListener("click", (e) => {
+    e.preventDefault();
+    linkHaftnotizen.classList.add("aktiv");
+    linkBloecke.classList.remove("aktiv");
+    linkBriefpapier.classList.remove("aktiv");
+    zeigeHaftnotizen();
 });
 
 function zeigeBloecke() {
@@ -96,24 +107,54 @@ function zeigeBriefpapier() {
 
         const grid = document.createElement("div");
         grid.className = "grid";
-        grid.style.gridTemplateColumns = "280px";
-
+        grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
         wrapper.appendChild(grid);
 
-        serie.normale.forEach(dateiname => {
-
-            const karte = document.createElement("div");
-            karte.className = "karte karte-briefpapier";
-
-            karte.innerHTML = `
-                <img src="bilder/${dateiname}.png" alt="${dateiname}">
-            `;
-
-            grid.appendChild(karte);
+        serie.normale.forEach(eintrag => {
+        grid.appendChild(erstelleKarte(eintrag, "karte-briefpapier"));
 
         });
 
         if (index < briefpapier.length - 1) {
+            const linie = document.createElement("h3");
+            linie.className = "trennlinie";
+            wrapper.appendChild(linie);
+        }
+
+        abschnitt.appendChild(wrapper);
+        inhalt.appendChild(abschnitt);
+
+    });
+
+}
+
+function zeigeHaftnotizen() {
+
+    inhalt.innerHTML = "";
+
+    haftnotizen.forEach((serie, index) => {
+
+        const abschnitt = document.createElement("section");
+        const wrapper = document.createElement("div");
+        wrapper.className = "inhalt";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = serie.datum;
+        wrapper.appendChild(h2);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+        grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
+
+        wrapper.appendChild(grid);
+
+        serie.normale.forEach(eintrag => {
+        grid.appendChild(erstelleKarte(eintrag, "karte-haftnotizen"));
+        
+
+        });
+
+        if (index < haftnotizen.length - 1) {
             const linie = document.createElement("h3");
             linie.className = "trennlinie";
             wrapper.appendChild(linie);
@@ -192,6 +233,27 @@ function fuelleGrid(container, bloecke) {
         container.appendChild(karte);
 
     });
+
+}
+
+function erstelleKarte(datei, klasse) {
+
+    const dateiname = typeof datei === "string"
+        ? datei
+        : datei.name;
+
+    const karte = document.createElement("div");
+    karte.className = `karte ${klasse}`;
+
+    if (typeof datei === "object" && datei.ohneRand) {
+        karte.classList.add("ohne-rand");
+    }
+
+    karte.innerHTML = `
+        <img src="bilder/${dateiname}.png" alt="${dateiname}">
+    `;
+
+    return karte;
 
 }
 

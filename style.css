@@ -217,6 +217,28 @@ h4 {
     aspect-ratio: 210 / 148;
 }
 
+/* Haftnotizen */
+
+.karte-haftnotizen {
+    width: 280px;
+    margin-top: 50px;
+}
+
+.karte-haftnotizen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0px auto;
+    aspect-ratio: 210 / 148;
+}
+
+/* Rand */
+
+.karte.ohne-rand {
+    border: none;
+}
+
 /* Handy */
 
 @media (max-width: 900px) {

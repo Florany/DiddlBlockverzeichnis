@@ -142,10 +142,10 @@ const sammlung = [
 const briefpapier = [
 
     {
-        datum: "Oktober 2025",
+        datum: "Oktober 2025 & Juli 2026",
 
         normale: [
-            "BF01"
+            "BD01"
         ]
     },
 
@@ -153,16 +153,22 @@ const briefpapier = [
         datum: "Mai 2026",
 
         normale: [
-            "BF02"
+            { name: "BF02", ohneRand: true }
         ]
     },
 
+];
+
+const haftnotizen = [
+
     {
-        datum: "Juli 2026",
+        datum: "Oktober 2025 & Juli 2026",
 
         normale: [
-            "BD01"
+            "HD01"
         ]
-    }
+
+    },
+
 
 ];
