@@ -2,12 +2,14 @@ const inhalt = document.getElementById("inhalt");
 const linkBloecke = document.querySelector(".kategorien a:nth-of-type(1)");
 const linkBriefpapier = document.querySelector(".kategorien a:nth-of-type(2)");
 const linkHaftnotizen = document.querySelector(".kategorien a:nth-of-type(3)");
+const linkBlockboxen = document.querySelector(".kategorien a:nth-of-type(4)");
 
 linkBloecke.addEventListener("click", (e) => {
     e.preventDefault();
     linkBloecke.classList.add("aktiv");
     linkBriefpapier.classList.remove("aktiv");
     linkHaftnotizen.classList.remove("aktiv");
+    linkBlockboxen.classList.remove("aktiv");
     zeigeBloecke();
 });
 
@@ -16,6 +18,7 @@ linkBriefpapier.addEventListener("click", (e) => {
     linkBriefpapier.classList.add("aktiv");
     linkBloecke.classList.remove("aktiv");
     linkHaftnotizen.classList.remove("aktiv");
+    linkBlockboxen.classList.remove("aktiv");
     zeigeBriefpapier();
 });
 
@@ -24,7 +27,17 @@ linkHaftnotizen.addEventListener("click", (e) => {
     linkHaftnotizen.classList.add("aktiv");
     linkBloecke.classList.remove("aktiv");
     linkBriefpapier.classList.remove("aktiv");
+    linkBlockboxen.classList.remove("aktiv");
     zeigeHaftnotizen();
+});
+
+linkBlockboxen.addEventListener("click", (e) => {
+    e.preventDefault();
+    linkBlockboxen.classList.add("aktiv");
+    linkBloecke.classList.remove("aktiv");
+    linkBriefpapier.classList.remove("aktiv");
+    linkHaftnotizen.classList.remove("aktiv");
+    zeigeBlockboxen();
 });
 
 function zeigeBloecke() {
@@ -108,11 +121,7 @@ function zeigeBriefpapier() {
         const grid = document.createElement("div");
         grid.className = "grid";
         
-        if (window.innerWidth <= 900) {
-            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 150px)`;
-        } else {
-            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
-        }
+        setzeSpaltenEinzelbild(grid, serie.normale.length);
         
         wrapper.appendChild(grid);
 
@@ -151,11 +160,7 @@ function zeigeHaftnotizen() {
         const grid = document.createElement("div");
         grid.className = "grid";
         
-        if (window.innerWidth <= 900) {
-            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 150px)`;
-        } else {
-            grid.style.gridTemplateColumns = `repeat(${serie.normale.length}, 280px)`;
-        }
+        setzeSpaltenEinzelbild(grid, serie.normale.length);
 
         wrapper.appendChild(grid);
 
@@ -166,6 +171,45 @@ function zeigeHaftnotizen() {
         });
 
         if (index < haftnotizen.length - 1) {
+            const linie = document.createElement("h3");
+            linie.className = "trennlinie";
+            wrapper.appendChild(linie);
+        }
+
+        abschnitt.appendChild(wrapper);
+        inhalt.appendChild(abschnitt);
+
+    });
+
+}
+
+function zeigeBlockboxen() {
+
+    inhalt.innerHTML = "";
+
+    blockboxen.forEach((serie, index) => {
+
+        const abschnitt = document.createElement("section");
+        const wrapper = document.createElement("div");
+        wrapper.className = "inhalt";
+
+        const h2 = document.createElement("h2");
+        h2.textContent = serie.datum;
+        wrapper.appendChild(h2);
+
+        const grid = document.createElement("div");
+        grid.className = "grid";
+
+        setzeSpaltenEinzelbild(grid, serie.normale.length);
+        
+        wrapper.appendChild(grid);
+
+        serie.normale.forEach(eintrag => {
+        grid.appendChild(erstelleKarte(eintrag, "karte-blockboxen"));
+
+        });
+
+        if (index < blockboxen.length - 1) {
             const linie = document.createElement("h3");
             linie.className = "trennlinie";
             wrapper.appendChild(linie);
@@ -212,6 +256,14 @@ function setzeSpalten(grid, anzahl) {
         grid.style.gridTemplateColumns = `repeat(${spalten}, 200px)`;
     
     }
+
+}
+
+function setzeSpaltenEinzelbild(grid, anzahl) {
+
+    const breite = window.innerWidth <= 900 ? 150 : 280;
+
+    grid.style.gridTemplateColumns = `repeat(${anzahl}, ${breite}px)`;
 
 }
 

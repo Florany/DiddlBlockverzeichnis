@@ -172,3 +172,12 @@ const haftnotizen = [
 
 
 ];
+
+const blockboxen = [
+    {
+        datum: "Juni 2026",
+        normale: [
+            { name: "BB01", ohneRand: true }
+        ]
+    }
+];
