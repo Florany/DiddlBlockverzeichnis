@@ -150,7 +150,7 @@ const briefpapier = [
     },
 
     {
-        datum: "Mai 2026",
+        datum: "Juni 2026",
 
         normale: [
             { name: "BF02", ohneRand: true }
