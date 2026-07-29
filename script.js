@@ -274,23 +274,8 @@ function fuelleGrid(container, bloecke) {
         const karte = document.createElement("div");
         karte.className = "karte";
 
-        const nummer = dateiname.slice(-2);
-
-        const match = dateiname.match(/^([A-Z]+)([456])(\d{2})$/);
-
-        if (!match) return;
-
-        const [, prefix, groesse, blockNummer] = match;
-
-        const blatt = `${prefix}${groesse}B${blockNummer}`;
-
         karte.innerHTML = `
-            <div class="bilder-paar">
-                <img src="bilder/${dateiname}.png" alt="${nummer}">
-                <img src="bilder/${blatt}.png"
-                     alt="Blatt ${nummer}"
-                     onerror="this.style.display='none'">
-            </div>
+            <img src="bilder/${dateiname}.png" alt="${dateiname}">
         `;
 
         container.appendChild(karte);

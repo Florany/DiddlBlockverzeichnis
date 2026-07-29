@@ -26,29 +26,6 @@ const sammlung = [
     {
         datum: "April 2026",
 
-        a5: {
-            normale: [
-                "MA501",
-                "MA502",
-                "MA503"
-            ]
-        },
-
-        a6: {
-            normale: [
-                "MA601",
-                "MA602",
-                "MA603",
-                "MA604",
-                "MA605",
-                "MA606"
-            ]
-        }
-    },
-
-    {
-        datum: "April 2026",
-
         a4: {
             normale: [
                 "HA401",
@@ -76,7 +53,30 @@ const sammlung = [
     },
 
     {
-        datum: "Mai 2026",
+        datum: "April 2026",
+
+        a5: {
+            normale: [
+                "MA501",
+                "MA502",
+                "MA503"
+            ]
+        },
+
+        a6: {
+            normale: [
+                "MA601",
+                "MA602",
+                "MA603",
+                "MA604",
+                "MA605",
+                "MA606"
+            ]
+        }
+    },
+
+    {
+        datum: "Juni 2026",
 
         a4: {
             normale: [
