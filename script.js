@@ -81,7 +81,9 @@ function zeigeBloecke() {
                 if (daten.sonder && daten.sonder.length > 0) {
 
                     const h4 = document.createElement("h4");
-                    h4.textContent = "Spezialblöcke";
+                    h4.textContent = daten.sonder.length === 1
+                    ? "Spezialblock"
+                    : "Spezialblöcke";
                     wrapper.appendChild(h4);
 
                     const grid = document.createElement("div");

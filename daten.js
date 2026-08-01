@@ -1,7 +1,7 @@
 const sammlung = [
 
     {
-        datum: "Oktober 2025",
+        datum: "Herbst 2025",
 
         a5: {
             normale: [
@@ -24,7 +24,7 @@ const sammlung = [
     },
 
     {
-        datum: "April 2026",
+        datum: "Frühjahr 2026",
 
         a4: {
             normale: [
@@ -53,7 +53,7 @@ const sammlung = [
     },
 
     {
-        datum: "April 2026",
+        datum: "Frühjahr 2026",
 
         a5: {
             normale: [
@@ -76,13 +76,16 @@ const sammlung = [
     },
 
     {
-        datum: "Juni 2026",
+        datum: "Sommer 2026",
 
         a4: {
             normale: [
             "BA401"
-            ]
+            ],
 
+            sonder: [
+                "BA402"
+            ]
         },
 
         a5: {
@@ -102,11 +105,11 @@ const sammlung = [
                 "BA605",
                 "BA606"
             ]
-        }
+        },
     },
 
     {
-        datum: "Juli 2026",
+        datum: "Sommer 2026",
 
         a5: {
             normale: [
@@ -142,7 +145,7 @@ const sammlung = [
 const briefpapier = [
 
     {
-        datum: "Oktober 2025 & Juli 2026",
+        datum: " Herbst 2025 & Sommer 2026",
 
         normale: [
             "BD01"
@@ -150,7 +153,7 @@ const briefpapier = [
     },
 
     {
-        datum: "Juni 2026",
+        datum: "Sommer 2026",
 
         normale: [
             { name: "BF02", ohneRand: true }
@@ -162,7 +165,7 @@ const briefpapier = [
 const haftnotizen = [
 
     {
-        datum: "Oktober 2025 & Juli 2026",
+        datum: "Herbst 2025 & Sommer 2026",
 
         normale: [
             "HD01"
@@ -175,7 +178,7 @@ const haftnotizen = [
 
 const blockboxen = [
     {
-        datum: "Juni 2026",
+        datum: "Sommer 2026",
         normale: [
             { name: "BB01", ohneRand: true }
         ]
