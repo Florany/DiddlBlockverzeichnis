@@ -84,11 +84,7 @@ const sammlung = [
             ],
 
         sonder: [
-            {
-            name: "BA402",
-            ohneRand: true,
-            klasse: "offen"
-            }
+            { name: "BA402", ohneRand: true, klasse: "offen" }
                 ]
         },
 

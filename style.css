@@ -304,7 +304,7 @@ h4 {
     section h2,
     h3,
     h4 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         text-align: center;
 
     }
@@ -319,7 +319,7 @@ h4 {
         flex-wrap: wrap;
         justify-content: center;
         gap: 4px 8px;
-        font-size: 0.9rem;
+        font-size: 0.93rem;
     }
 
     .karte-briefpapier,
