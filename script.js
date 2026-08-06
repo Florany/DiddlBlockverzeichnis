@@ -271,10 +271,22 @@ function setzeSpaltenEinzelbild(grid, anzahl) {
 
 function fuelleGrid(container, bloecke) {
 
-    bloecke.forEach(dateiname => {
+    bloecke.forEach(eintrag => {
+
+        const dateiname = typeof eintrag === "string"
+            ? eintrag
+            : eintrag.name;
 
         const karte = document.createElement("div");
         karte.className = "karte";
+
+        if (typeof eintrag === "object" && eintrag.ohneRand) {
+            karte.classList.add("ohne-rand");
+        }
+
+        if (typeof eintrag === "object" && eintrag.klasse) {
+            karte.classList.add(eintrag.klasse);
+        }
 
         karte.innerHTML = `
             <img src="bilder/${dateiname}.png" alt="${dateiname}">

@@ -201,6 +201,14 @@ h4 {
     font-size: 18px;
 }
 
+.karte.offen {
+    transform: scale(1.4);
+}
+
+.karte.offen img {
+    object-fit: contain;
+}
+
 /* Briefpapier */
 
 .karte-briefpapier {

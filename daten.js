@@ -80,12 +80,16 @@ const sammlung = [
 
         a4: {
             normale: [
-            "BA401"
+                "BA401"
             ],
 
-            sonder: [
-                "BA402"
-            ]
+        sonder: [
+            {
+            name: "BA402",
+            ohneRand: true,
+            klasse: "offen"
+            }
+                ]
         },
 
         a5: {
